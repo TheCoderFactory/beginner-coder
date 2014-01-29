@@ -228,7 +228,21 @@ end
 
 Now we can go to the `views/home/index.html` and bring our data in.
 
+```
+<h1><%= @contact_info.first_name %> <%= @contact_info.last_name %>'s Contact Info</h1>
 
+<p><strong>Call me:</strong> <%= @contact_info.phone %></p>
+
+<p><strong>Email me:</strong> <%= @contact_info.email %></p>
+
+<p><strong>Follow me:</strong> <%= link_to @contact_info.twitter, 'https://twitter.com/' + @contact_info.twitter, class: 'btn btn-success' %></p>
+
+<%= image_tag @contact_info.profile_pic, width: '200px' %>
+
+<% if user_signed_in? %>
+	<%= link_to "Edit my info", edit_contact_info_path(@contact_info) %>
+<% end %>
+```
 
 
 
