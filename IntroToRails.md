@@ -51,6 +51,8 @@ We will use Rails Composer to give you a great starter app. This allows you to s
 
 In your browser, search for Rails Composer or [go here](http://railsapps.github.io/rails-composer/).
 
+In your terminal navigate to your apps folder (or folder where you want your apps to live).
+
 Copy the line `rails new myapp -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb` (without the dollar sign).
 
 And paste this into your terminal.
@@ -178,6 +180,53 @@ The files that were created by the scaffold generator are:
 We also have the following files already created by Rails Composer
 * controllers/home_controller.rb
 * views/home/index.html.erb
+
+## The Rails console
+
+We will now have a look at our app through the terminal - as opposed to through the browser.
+
+From your terminal type (either stop your server, or open a new tab: Cmd+T) `rails console`
+
+This will bring up an interface to your app.
+
+If you type `User.all` you will see a print out of all the users, which at the moment is just the user you created when you signed up in your app.
+
+To see just the first user, type `User.first`.
+
+When you type `ContactInfo.first`, you will see the contact info you just entered.
+
+To see the first name, type `ContactInfo.first.first_name`.
+
+This gives you an insight on how we access the data in our app.
+
+Exit the console by typing `exit`.
+
+## Bringing data to your home page
+
+To have your contact info show on the home page of your app, we need to make it available through the home controller.
+
+In your text editor (Sublime), navigate to `app/controllers/home_controller.rb`
+
+You will see an index method, it will look like this:
+
+````
+class HomeController < ApplicationController
+  def index
+    @users = User.all
+  end
+end
+````
+
+This would make all users available to be shown on the home index page. Since we want our contact info, we change the method like so:
+````
+class HomeController < ApplicationController
+  def index
+    @contact_info = ContactInfo.first
+  end
+end
+````
+
+Now we can go to the `views/home/index.html` and bring our data in.
 
 
 
