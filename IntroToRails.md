@@ -78,12 +78,12 @@ This command creates a new rails app called 'myapp' and calls the Rails Composer
 1. 2 (Gmail)
 1. 2 (Devise)
 1. 1 (Devise with default modules)
-1. 2 (CanCan with Rolify)
+1. 1 (None)
 1. 2 (Simpleform)
 1. 4 (Home Page, User Accounts, Admin Dashboard)
 1. n (Robots.txt file)
 1. n (Github repository)
-1. n (application.yml for Environment variables)
+1. 1 (application.yml for Environment variables)
 1. y (Reduce assets logger noise)
 1. y (Improve error reporting)
 1. n (Use or create a project specific gemset)
@@ -94,6 +94,8 @@ When it is finished, change into the myapp directory.
 ```
 $ cd myapp
 ```
+
+Run bundle ie. `$ bundle`
 
 You can run your app.
 ```
@@ -251,50 +253,3 @@ Now we can go to the `views/home/index.html` and bring our data in.
 
 
 
-
-
-
-
-
-
-
-## Databases
-
-Databases are almost always used in web applications. They are used to store and manage data.
-
-What are the names of some popular databases?
-
-What does a database help us do in general terms?
-
-- persistent data
-- define data structures
-- CRUD
-- backup data
-
-What type of data would be stored in the database of a web application like Facebook?
-
-What is meant by a "relational" database?
-
-How is the data organised in a relational database?
-
-- Tables, columns, tuples (rows).
-
-Data structure - relationships between the data.
-
-[SQL](http://www.w3schools.com/sql/)
-
-Primary keys & Foreign keys
-
-## Application Design
-
-One of the first steps when starting to build an application, is to think about all the different parts of the application and how it will work.
-
-What is the problem the application is trying to solve? What are the goals of this application/website?
-
-Who is the audience of the application? Name all the different types of users who will use your site.
-
-How will a user interact with the application? What are the use cases?
-
-What data needs to be stored for the application to work?
-
-How will the application look? What image are you trying to portray/what feeling do you want to give users.
