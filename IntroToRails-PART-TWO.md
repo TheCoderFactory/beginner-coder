@@ -22,7 +22,6 @@ rvm use (paste)
 
 
 
-
 ## Databases
 
 Databases are almost always used in web applications. They are used to store and manage data.
@@ -69,7 +68,7 @@ How will the application look? What image are you trying to portray/what feeling
 
 Now we will add your work history to the app.
 
-In your terminal, generate another scaffold.
+First check that you are in you app folder in your terminal (`pwd`), and generate a scaffold.
 ```
 rails generate scaffold Job company start_date:date end_date:date position summary:text
 ```
@@ -131,7 +130,7 @@ If you refresh your Home page [localhost:3000/](localhost:3000/), you will see t
 
 
 
-## CHALLENGE
+## CHALLENGE 1
 
 Now do the same for References. Use the process you used for creating jobs and do the same for references.
 
@@ -176,6 +175,8 @@ Save your Gemfile and in your terminal, run `bundle`.
 
 Now we use git to send your app to Heroku.
 
+Check you're in your app folder in your terminal.
+
 Perform the following commands:
 ```
 git init
@@ -206,7 +207,7 @@ The data you entered on your local app will not show up on your site, however. I
 
 ## Using HTML in your job summary fields
 
-You are also able to apply HTML and CSS styling to the text in your job summaries. If you want to add bullet lists for your responsibilities, you could use <ul> and <li> tags to do this.
+You are also able to apply HTML and CSS styling to the text in your job summaries. If you want to add bullet lists for your responsibilities, you could use `<ul>` and `<li>` tags to do this.
 
 Go to `localhost:3000/jobs` and edit one of the jobs you entered before.
 
@@ -266,17 +267,16 @@ Start with this framework:
 </div>
 ```
 
-In the second columns, copy in the content from *app/views/jobs/index.html.erb*
+In the second columns, copy in the content from *app/views/jobs/index.html.erb* and *app/views/references/index.html.erb*.
+
+Save your file and load in your browser: `localhost:3000/admin/index`
 
 
+## CHALLENGE 2
+
+Add 'Add Job' and 'Add Reference' buttons to your admin page.
 
 
-## CHALLENGE
+## CHALLENGE 3
 
-Redesign the front page so it looks
-
-
-
-
-
-
+Redesign the front page so it looks nice.
