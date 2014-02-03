@@ -2,6 +2,25 @@
 
 Last class you started building your own personal resume app. This class will help you add your work history and deploy it to the web.
 
+#### Remember:
+
+To stop your server: CTRL+C
+
+To start your server: `rails s`
+
+If your terminal says *Rails is not installed*:
+```
+rvm list gemsets
+```
+Copy the part in green which says `ruby-2.1.0@rails-402` (or similar)
+
+Then in your terminal:
+```
+rvm use (paste)
+```
+
+
+
 
 
 ## Databases
@@ -182,7 +201,79 @@ heroku run rake db:migrate
 
 You should now be able to see your site at `<your_name>-resume-app.herokuapp.com`
 
+The data you entered on your local app will not show up on your site, however. It has a different database and therefore you will need to enter your data again.
 
+
+## Using HTML in your job summary fields
+
+You are also able to apply HTML and CSS styling to the text in your job summaries. If you want to add bullet lists for your responsibilities, you could use <ul> and <li> tags to do this.
+
+Go to `localhost:3000/jobs` and edit one of the jobs you entered before.
+
+If you use HTML in your job summary form fields right now, the HTML will show as-is on your page. 
+There is an easy way to change this. Just by adding the flag `.html_safe` to the end of the attribute you want to allow HTML.
+
+```
+<p><%= job.summary.html_safe %></p>
+```
+
+To make the dates look nicer, we use STFRTIME (which is an abbreviation for something like *string from time*).
+
+```
+<p><strong><%= job.start_date.strftime('%e %h %Y') %> to <%= job.end_date.strftime('%e %h %Y') %></strong></p>
+```
+
+To try different formatting for your dates, check out [the docs](http://apidock.com/ruby/DateTime/strftime).
+
+
+## Create an admin page
+
+Now you can create a page just for the admin to be able to easily change the information to be displayed.
+
+In your terminal (stop the server if it is running), and create the admin page with the following gererate command:
+```
+rails g controller admin index
+```
+
+Now if you visit `localhost:3000/admin/index` you see the basic template page.
+
+To show the contact info, jobs and references on the admin page, we need to use the admin controller to access the model and data.
+
+Navigate to your admin controller file. *app/controllers/admin_controller.rb*
+
+Bring in all the data:
+
+```
+def index
+	@contact_info = ContactInfo.first
+	@jobs = Job.all
+	@references = Reference.all
+end
+```
+
+Now you can use this data in your *app/views/admin/index.html.erb*
+
+Start with this framework:
+```
+<h1>Admin panel for Pete's resumé</h1>
+<div class="row">
+	<div class="col-md-6">
+		<h2>My contact info</h2>
+		<%= render 'contact_infos/form' %>
+	</div>
+	<div class="col-md-6">
+	</div>
+</div>
+```
+
+In the second columns, copy in the content from *app/views/jobs/index.html.erb*
+
+
+
+
+## CHALLENGE
+
+Redesign the front page so it looks
 
 
 
