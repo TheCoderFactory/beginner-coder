@@ -83,7 +83,7 @@ This command creates a new rails app called 'myapp' and calls the Rails Composer
 1. 4 (Home Page, User Accounts, Admin Dashboard)
 1. n (Robots.txt file)
 1. n (Github repository)
-1. 1 (application.yml for Environment variables)
+1. 1 (none)
 1. y (Reduce assets logger noise)
 1. y (Improve error reporting)
 1. n (Use or create a project specific gemset)
